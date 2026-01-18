@@ -1,4 +1,4 @@
-import { Leaf, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Linkedin, Twitter, Instagram } from "lucide-react";
 
 const footerLinks = {
   company: [
@@ -33,11 +33,12 @@ export function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
-                <Leaf className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold">realible</span>
+            <a href="#" className="flex items-center gap-3 mb-4">
+              <img
+                src="/logo_trans.png"
+                alt="Realible Logo"
+                className="h-16 w-auto lg:h-20 transition-opacity duration-300"
+              />
             </a>
             <p className="text-primary-foreground/70 max-w-sm mb-6">
               Transforming plastic waste into sustainable building materials. 
