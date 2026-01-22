@@ -150,7 +150,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-16 lg:pt-20">
+      <main className="pt-32 lg:pt-36">
         {/* Hero Section */}
         <section ref={heroRef} className="py-24 lg:py-32 bg-gradient-hero text-primary-foreground relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">

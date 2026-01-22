@@ -1,3 +1,23 @@
+/**
+ * Contact Form with EmailJS Integration
+ * 
+ * Setup Instructions:
+ * 1. Install EmailJS: npm install @emailjs/browser
+ * 2. Create a free account at https://www.emailjs.com/
+ * 3. Create an email service (Gmail, Outlook, etc.)
+ * 4. Create an email template with these variables:
+ *    - {{to_email}} (will be set to info@realiblebv.com)
+ *    - {{from_name}}
+ *    - {{from_email}}
+ *    - {{subject}}
+ *    - {{message}}
+ *    - {{reply_to}}
+ * 5. Add environment variables to .env file:
+ *    VITE_EMAILJS_SERVICE_ID=your_service_id
+ *    VITE_EMAILJS_TEMPLATE_ID=your_template_id
+ *    VITE_EMAILJS_PUBLIC_KEY=your_public_key
+ */
+
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
@@ -8,25 +28,31 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { toast } from "sonner";
 
 const contactInfo = [
   {
     icon: Mail,
     title: "Email",
     content: "info@realiblebv.com",
-    link: "mailto:hello@realible.com",
+    link: "mailto:info@realiblebv.com",
   },
   {
     icon: Phone,
-    title: "Phone",
+    title: "Phone (Sweden)",
     content: "+46736167376",
     link: "tel:+46736167376",
   },
   {
+    icon: Phone,
+    title: "Phone (Netherlands)",
+    content: "+31610139004",
+    link: "tel:+31610139004",
+  },
+  {
     icon: MapPin,
     title: "Address",
-    content: "Verdunplein 17,
-    5627, SZ Eindhoven, The Netherlands",
+    content: "Verdunplein 17, 5627, SZ Eindhoven, The Netherlands",
     link: null,
   },
 ];
@@ -54,19 +80,96 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert("Thank you for your message! We'll get back to you soon.");
+
+    try {
+      // Try to use EmailJS if available
+      let emailjs: any = null;
+      try {
+        // @ts-ignore - EmailJS may not be installed
+        const emailjsModule = await import("@emailjs/browser");
+        emailjs = emailjsModule.default || emailjsModule;
+      } catch {
+        // EmailJS package not installed, will use fallback
+      }
+
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Check if EmailJS is available and configured
+      const isEmailJSConfigured = emailjs && 
+        serviceId && 
+        templateId && 
+        publicKey && 
+        serviceId !== "YOUR_SERVICE_ID" && 
+        templateId !== "YOUR_TEMPLATE_ID" && 
+        publicKey !== "YOUR_PUBLIC_KEY";
+
+      if (isEmailJSConfigured) {
+        // Use EmailJS to send email
+        emailjs.init(publicKey);
+
+        const response = await emailjs.send(serviceId, templateId, {
+          to_email: "info@realiblebv.com",
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          reply_to: formData.email,
+        });
+
+        if (response.status === 200) {
+          toast.success("Message sent successfully!", {
+            description: "We'll get back to you soon.",
+          });
+
+          // Reset form
+          setFormData({ name: "", email: "", subject: "", message: "" });
+          setIsSubmitting(false);
+          return;
+        } else {
+          throw new Error("Email sending failed");
+        }
+      }
+
+      // Fallback: Use mailto link
+      const mailtoBody = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+      const mailtoLink = `mailto:info@realiblebv.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(mailtoBody)}`;
+      
+      window.location.href = mailtoLink;
+      
+      toast.success("Opening email client...", {
+        description: emailjs ? "EmailJS not configured. Please send the email from your email client." : "Please send the email from your email client.",
+      });
+      
+      // Reset form
       setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 1000);
+    } catch (error: any) {
+      console.error("Email sending failed:", error);
+      
+      // Fallback to mailto on error
+      const mailtoBody = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+      const mailtoLink = `mailto:info@realiblebv.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(mailtoBody)}`;
+      
+      toast.error("Failed to send message", {
+        description: "Opening email client as fallback. You can also contact us directly at info@realiblebv.com",
+        action: {
+          label: "Open Email",
+          onClick: () => {
+            window.location.href = mailtoLink;
+          },
+        },
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-16 lg:pt-20">
+      <main className="pt-32 lg:pt-36">
         {/* Hero Section */}
         <section ref={heroRef} className="py-24 lg:py-32 bg-gradient-hero text-primary-foreground relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">

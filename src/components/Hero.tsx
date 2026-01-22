@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight, Recycle, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBricks from "@/assets/hero-bricks.jpg";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 md:pt-20 lg:pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-32 md:pt-36 lg:pt-36 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/50 via-background to-background" />
       
@@ -45,17 +46,17 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="#contact">
+              <Link to="/contact">
                 <Button size="lg" variant="hero" className="group">
                   Start Your Project
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </a>
-              <a href="#about">
+              </Link>
+              <Link to="/about">
                 <Button size="lg" variant="outline">
                   Learn More
                 </Button>
-              </a>
+              </Link>
             </div>
 
             {/* Stats Preview */}

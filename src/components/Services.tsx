@@ -33,28 +33,60 @@ const services = [
 
 const faqs = [
   {
-    question: "What types of materials do you import?",
-    answer: "We import a wide range of sustainable building materials including eco-bricks, recycled construction materials, and certified green building products from verified suppliers worldwide.",
+    question: "What kind of insulation do you have?",
+    answer: "The product used for the manufacture of houses and living spaces already for its Nature is an insulating element of both heat, cold, humidity, fire andelectricity, no additional insulators are required",
   },
   {
-    question: "How long does the export process typically take?",
-    answer: "Export timelines vary based on destination and order size, typically ranging from 2-6 weeks. We provide detailed timelines and tracking for all shipments to ensure transparency throughout the process.",
+    question: "Heat and cold tests (fire risk tolerance)",
+    answer: "Laboratory tests were carried out and it prevents 62.59% of the heat in the entrance area from reaching the exit area.",
   },
   {
-    question: "What certifications do your products have?",
-    answer: "Our eco-bricks are certified by leading sustainability organizations including LEED, BREEAM, and Green Building Council. All products meet international quality and environmental standards.",
+    question: "What kind of anchor do you have?",
+    answer: "The anchors are made to the base plate or piles as the case may be by means of expansion chazo, the structural elements are joined by screws and metal plates.",
   },
   {
-    question: "Do you offer custom packaging solutions?",
-    answer: "Yes, we provide sustainable, recyclable packaging solutions tailored to your shipping needs. Our packaging is designed to minimize waste and environmental impact while ensuring product safety.",
+    question: "Can the facilities and/or networks be placed inside the blocks?",
+    answer: "Yes, the facilities and/or networks can be placed inside the blocks and are not exposed",
   },
   {
-    question: "What regions do you currently serve?",
-    answer: "We currently serve North America, Europe, and select markets in Asia-Pacific. We're continuously expanding our reach to make sustainable building materials accessible globally.",
+    question: "On what base should it be mounted or only on land with some mechanism?",
+    answer: "A stable and permanent base must be provided that does not deteriorate over time, such as a concrete plate or shoes, which can be made with the same plastic element from which the blocks and columns of our construction system are made.",
   },
   {
-    question: "How can I become a partner or supplier?",
-    answer: "We welcome partnerships with sustainable suppliers and distributors. Please contact us through our contact form with details about your organization and how you'd like to collaborate.",
+    question: "How many floors can be built?",
+    answer: "Using exclusively our system you can make buildings of a floor regardless of the size of the area, when you want to make more than one floor the structural columns and beams must be replaced by steel columns to guarantee resistance.",
+  },
+  {
+    question: "What kind of roof can be built?",
+    answer: "Using exclusively our system you can make buildings of a floor regardless of the size of the area, when you want to make more than one floor the structural columns and beams must be replaced by steel columns to guarantee resistance.",
+  },
+  {
+    question: "What structure do you need to support yourself (beams, columns, roof)?",
+    answer: "The system provides all the elements to be used in the construction, only a load-bearing base is required. Take into account the image of answer No.5.",
+  },
+  {
+    question: "Do the blocks have standard measurements or can they be configured according to the design?",
+    answer: "The blocks have a standard size, but cuts are made on site to adapt to the size, there is no limit in terms of design or areas.",
+  },
+  {
+    question: "Can you put a traditional plate to mount the second floor?",
+    answer: "Second floor can be made with lightweight plate or metal deck. Applying the answers to question 5",
+  },
+  {
+    question: "What finishes can be used?",
+    answer: "You can apply any type of finish, cloth, stucco, stone, graniplast, marmoplast, etc.",
+  },
+  {
+    question: "How long does it take to assemble a house?",
+    answer: "It depends on the size of the house, the yield is 10 square meters per day plus a day.",
+  },
+  {
+    question: "After it is built, it needs some special ground support",
+    answer: "After being built on a firm base, no type of ground support is required.",
+  },
+  {
+    question: "What are the joints and angles like?",
+    answer: "The perforations are made after the beams and columns are assembled, everything is made to measure in the finished element, guaranteeing the total adjustment of the pieces between them.",
   },
 ];
 

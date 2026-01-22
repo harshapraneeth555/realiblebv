@@ -1,45 +1,53 @@
-import { Linkedin, Twitter, Instagram } from "lucide-react";
+import { Linkedin, Twitter, Instagram, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const footerLinks = {
   company: [
-    { name: "About Us", href: "#about" },
-    { name: "Our Process", href: "#process" },
-    { name: "Impact", href: "#impact" },
-    { name: "Careers", href: "#" },
+    { name: "About Us", href: "/about" },
+    { name: "Our Process", href: "/process" },
+    { name: "Impact", href: "/impact" },
+    //{ name: "Careers", href: "#" },
+  ],
+  services: [
+    { name: "Import", href: "/services/import" },
+    { name: "Export", href: "/services/export" },
+    { name: "Realible BV Food", href: "/services/food" },
   ],
   resources: [
     { name: "Documentation", href: "#" },
-    { name: "Case Studies", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "FAQs", href: "#" },
+    //{ name: "Case Studies", href: "#" },
+    //{ name: "Blog", href: "#" },
+    { name: "FAQs", href: "/services" },
+    { name: "Donate", href: "/donate" },
   ],
   legal: [
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
-    { name: "Certifications", href: "#" },
+    {  name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms of Service", href: "/terms-of-service" },
+    { name: "Certifications", href: "/certifications" },
   ],
 };
 
 const socialLinks = [
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
-  { name: "Twitter", icon: Twitter, href: "#" },
-  { name: "Instagram", icon: Instagram, href: "#" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/realible-b-v" },
+  { name: "Twitter", icon: Twitter, href: "https://x.com/realiblebv" },
+  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/realiblebv/" },
+  { name: "Whatsapp", icon: MessageCircle, href: "https://wa.me/46736167376" },
 ];
 
 export function Footer() {
   return (
     <footer className="bg-foreground text-primary-foreground py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-4">
+            <Link to="/" className="flex items-center gap-3 mb-4">
               <img
                 src="/logo_trans.png"
                 alt="Realible Logo"
                 className="h-16 w-auto lg:h-20 transition-opacity duration-300"
               />
-            </a>
+            </Link>
             <p className="text-primary-foreground/70 max-w-sm mb-6">
               Transforming plastic waste into sustainable building materials. 
               Building a greener future, one brick at a time.
@@ -64,12 +72,37 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  {link.href.startsWith('/') ? (
+                    <Link
+                      to={link.href}
+                      className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4">Services</h4>
+            <ul className="space-y-3">
+              {footerLinks.services.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
                     className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -80,12 +113,21 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  {link.href.startsWith('/') ? (
+                    <Link
+                      to={link.href}
+                      className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -96,12 +138,12 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
