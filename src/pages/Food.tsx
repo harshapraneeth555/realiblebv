@@ -3,28 +3,28 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { UtensilsCrossed, Leaf, Globe, Truck, Shield } from "lucide-react";
+import { UtensilsCrossed, Leaf, Globe, Truck, Shield, Star, Store } from "lucide-react";
 
 const features = [
   {
     icon: Leaf,
     title: "Sustainable Sourcing",
-    description: "We source food products from sustainable and ethical suppliers committed to environmental responsibility.",
+    description: "We source premium rice and spices directly from Indian farmers, ensuring ethical and sustainable practices throughout our supply chain.",
   },
   {
     icon: Globe,
-    title: "Global Food Network",
-    description: "Access to premium food products from around the world, ensuring quality and freshness.",
+    title: "International Quality Standards",
+    description: "All products are processed and prepared to meet strict international quality standards, ensuring safety and excellence for global markets.",
   },
   {
     icon: Truck,
     title: "Cold Chain Logistics",
-    description: "Specialized temperature-controlled logistics to maintain product quality from source to destination.",
+    description: "Specialized temperature-controlled logistics to maintain product quality and freshness from India to destination.",
   },
   {
     icon: Shield,
     title: "Quality & Safety",
-    description: "Rigorous quality control and food safety standards to ensure all products meet international regulations.",
+    description: "Rigorous quality control and food safety standards to ensure all products meet international regulations and certifications.",
   },
 ];
 
@@ -55,11 +55,11 @@ const Food = () => {
                 Food Services
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                Food Import & Export
+                Premium Rice & Spices
+                <span className="opacity-80"> from India</span>
               </h1>
               <p className="text-lg text-primary-foreground/80">
-                Connecting sustainable food products across borders, ensuring quality, freshness, and 
-                ethical sourcing from farm to table.
+                Reliable BV supplies premium rice and spices from India, responsibly sourced from farmers and processed to meet strict international quality standards.
               </p>
             </motion.div>
           </div>
@@ -76,10 +76,11 @@ const Food = () => {
                 transition={{ duration: 0.6 }}
                 className="mb-12 text-center"
               >
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Our food services specialize in the import and export of high-quality, sustainably sourced 
-                  food products. We understand the unique requirements of food logistics, from maintaining 
-                  cold chains to ensuring compliance with international food safety standards.
+                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                  We specialize in importing and exporting high-quality rice and spices from India. Our products are sourced directly from trusted Indian farmers and prepared to meet the highest international standards, ensuring quality, freshness, and ethical sourcing from farm to table.
+                </p>
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Whether you're a retailer, wholesaler, distributor, or investor, we provide reliable supply chain solutions tailored to your needs.
                 </p>
               </motion.div>
 
@@ -106,33 +107,84 @@ const Food = () => {
                 ))}
               </div>
 
-              {/* Additional Information */}
+              {/* Service Information */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isContentInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="bg-secondary/30 p-8 rounded-2xl border border-border"
+                className="bg-secondary/30 p-8 rounded-2xl border border-border mb-8"
               >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-hero flex items-center justify-center flex-shrink-0">
-                    <UtensilsCrossed className="w-6 h-6 text-primary-foreground" />
-                  </div>
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div>
-                    <h2 className="text-2xl font-bold text-foreground mb-4">Comprehensive Food Solutions</h2>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-hero flex items-center justify-center flex-shrink-0">
+                        <UtensilsCrossed className="w-6 h-6 text-primary-foreground" />
+                      </div>
+                      <h2 className="text-2xl font-bold text-foreground">Comprehensive Food Solutions</h2>
+                    </div>
                     <p className="text-muted-foreground leading-relaxed mb-4">
-                      Whether you're importing specialty foods, organic products, or exporting local 
-                      delicacies, we provide end-to-end solutions tailored to the food industry. Our 
-                      expertise in food logistics ensures that products maintain their quality, freshness, 
-                      and nutritional value throughout the entire supply chain.
+                      Reliable BV is a trusted supplier of premium rice and spices from India for wholesalers, distributors, and retail partners. We understand the unique requirements of food logistics, from maintaining cold chains to ensuring compliance with international food safety standards.
                     </p>
                     <p className="text-muted-foreground leading-relaxed">
-                      We work with certified suppliers and follow strict food safety protocols, ensuring 
-                      compliance with international standards and regulations. From documentation to 
-                      delivery, we handle every detail so you can focus on your business.
+                      Our expertise in food logistics ensures that products maintain their quality, freshness, and nutritional value throughout the entire supply chain. We work with certified suppliers and follow strict food safety protocols, ensuring compliance with international standards and regulations. From documentation to delivery, we handle every detail so you can focus on your business.
                     </p>
                   </div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={isContentInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: 0.5, duration: 0.6 }}
+                    className="relative rounded-xl overflow-hidden shadow-card"
+                  >
+                    <img
+                      src="/rice.png"
+                      alt="Premium rice and spices"
+                      className="w-full h-auto object-cover"
+                    />
+                  </motion.div>
                 </div>
               </motion.div>
+
+              {/* Target Markets */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isContentInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                  className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-2xl border border-primary/20"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                      <Star className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-foreground">Premium & Trust-Building</h3>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Our premium rice and spices are responsibly sourced from Indian farmers and processed to meet strict international quality standards, making them perfect for showcasing quality and building trust with investors and discerning buyers.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isContentInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                  className="bg-card p-6 rounded-2xl border border-border shadow-soft"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-hero flex items-center justify-center">
+                      <Store className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-foreground">Wholesale & Retail Focus</h3>
+                      <p className="text-sm text-muted-foreground">For distributors and retail partners</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    We provide reliable supply chain solutions for wholesalers, distributors, and retail partners, ensuring consistent quality and timely delivery of premium rice and spices from India to support your business operations.
+                  </p>
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>

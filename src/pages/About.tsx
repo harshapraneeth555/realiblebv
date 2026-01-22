@@ -114,18 +114,41 @@ const About = () => {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="mt-12 bg-card p-8 rounded-2xl shadow-soft border border-border"
               >
-                <h2 className="text-2xl font-bold text-foreground mb-4">Our Vision</h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  We envision a world where construction materials are sourced sustainably, where waste 
-                  becomes a valuable resource, and where every building project contributes to a healthier planet. 
-                  Our eco-bricks are just the beginning of a larger movement toward circular economy principles 
-                  in the construction industry.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  By choosing Realible, you're not just selecting a building material—you're making a 
-                  statement about the future you want to build. Join us in creating a sustainable tomorrow, 
-                  one brick at a time.
-                </p>
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <h2 className="text-2xl font-bold text-foreground mb-4">Our Vision</h2>
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      We envision a world where construction materials are sourced sustainably, where waste 
+                      becomes a valuable resource, and where every building project contributes to a healthier planet. 
+                      Our eco-bricks are just the beginning of a larger movement toward circular economy principles 
+                      in the construction industry.
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      By choosing Realible, you're not just selecting a building material—you're making a 
+                      statement about the future you want to build. Join us in creating a sustainable tomorrow, 
+                      one brick at a time.
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed text-sm bg-primary/5 p-4 rounded-lg border border-primary/10">
+                      <strong className="text-foreground">Reducing Carbon Footprint:</strong> Our eco-brick production process 
+                      significantly reduces carbon emissions compared to traditional brick manufacturing, helping combat 
+                      climate change while building a sustainable future.
+                    </p>
+                  </div>
+                  <div className="relative">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={isContentInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ delay: 0.5, duration: 0.6 }}
+                      className="relative rounded-xl overflow-hidden shadow-card"
+                    >
+                      <img
+                        src="/brick.png"
+                        alt="Eco-brick"
+                        className="w-full h-auto object-cover"
+                      />
+                    </motion.div>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
