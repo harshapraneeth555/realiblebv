@@ -23,8 +23,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Address",
-    content: "Verdunplein 17,
-    5627, SZ Eindhoven, The Netherlands",
+    content: "Verdunplein 17, 5627, SZ Eindhoven, The Netherlands",
     link: null,
   },
 ];
