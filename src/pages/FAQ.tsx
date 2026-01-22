@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
 
@@ -77,6 +78,12 @@ const FAQ = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Frequently Asked Questions - Realible FAQ"
+        description="Find answers to common questions about Realible's sustainable building materials, eco-bricks, construction process, import/export services, and food products."
+        keywords="realible FAQ, eco-bricks questions, sustainable construction FAQ, building materials FAQ, rice import FAQ, spices import FAQ"
+        url="/faq"
+      />
       <Navbar />
       <main className="pt-32 lg:pt-36">
         {/* Hero Section */}

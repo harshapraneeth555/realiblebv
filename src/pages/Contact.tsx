@@ -23,6 +23,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -168,6 +169,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact Us - Get in Touch with Realible"
+        description="Contact Realible B.V for inquiries about sustainable building materials, eco-bricks, rice and spices import. Reach us via email, phone, or visit our office in Eindhoven, Netherlands."
+        keywords="contact realible, sustainable building materials contact, eco-bricks inquiry, rice import contact, spices import contact"
+        url="/contact"
+      />
       <Navbar />
       <main className="pt-32 lg:pt-36">
         {/* Hero Section */}

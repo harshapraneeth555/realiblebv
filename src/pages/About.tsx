@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import { Leaf, Droplets, Shield, Zap } from "lucide-react";
 
 const features = [
@@ -36,6 +37,12 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="About Us - Sustainable Building Solutions"
+        description="Learn about Realible's mission to transform plastic waste into sustainable building materials. Discover our vision, values, and commitment to reducing carbon emissions."
+        keywords="about realible, sustainable construction, eco-friendly building, plastic recycling, carbon footprint reduction"
+        url="/about"
+      />
       <Navbar />
       <main className="pt-32 lg:pt-36">
         {/* Hero Section */}

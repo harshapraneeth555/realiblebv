@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import { UtensilsCrossed, Leaf, Globe, Truck, Shield, Star, Store } from "lucide-react";
 
 const features = [
@@ -36,6 +37,12 @@ const Food = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Premium Rice & Spices from India - Realible BV Food"
+        description="Realible BV supplies premium rice and spices from India, responsibly sourced from farmers and processed to meet strict international quality standards."
+        keywords="rice import, spices import, premium rice India, spices from India, wholesale rice, rice distributor, spices distributor"
+        url="/services/food"
+      />
       <Navbar />
       <main className="pt-32 lg:pt-36">
         {/* Hero Section */}
