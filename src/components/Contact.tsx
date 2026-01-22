@@ -11,19 +11,20 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "hello@realible.com",
-    link: "mailto:hello@realible.com",
+    content: "info@realiblebv.com",
+    link: "mailto:info@realiblebv.com",
   },
   {
     icon: Phone,
     title: "Phone",
-    content: "+1 (555) 123-4567",
-    link: "tel:+15551234567",
+    content: "+46736167376",
+    link: "tel:+46736167376",
   },
   {
     icon: MapPin,
     title: "Address",
-    content: "123 Green Street, Eco City, EC 12345",
+    content: "Verdunplein 17,
+    5627, SZ Eindhoven, The Netherlands",
     link: null,
   },
 ];
