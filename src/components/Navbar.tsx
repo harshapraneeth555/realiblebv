@@ -23,6 +23,7 @@ const navLinks = [
   { name: "Process", href: "/process" },
   { name: "Impact", href: "/impact" },
   { name: "Operations", href: "/projects" },
+  { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
 ];
 

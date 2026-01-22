@@ -1,10 +1,39 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Recycle, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBricks from "@/assets/hero-bricks.jpg";
+import { useState, useEffect } from "react";
+
+const houseImages = [
+  "/house_1.png",
+  "/house_2.png",
+  "/house_3.png",
+  "/house_4.png",
+];
 
 export function Hero() {
+  const [showHouses, setShowHouses] = useState(false);
+  const [currentHouseIndex, setCurrentHouseIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowHouses(true);
+    }, 5000); // 5 second delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!showHouses) return;
+
+    const carouselTimer = setInterval(() => {
+      setCurrentHouseIndex((prev) => (prev + 1) % houseImages.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(carouselTimer);
+  }, [showHouses]);
+
   return (
     <section className="relative min-h-screen flex items-center pt-32 md:pt-36 lg:pt-36 overflow-hidden">
       {/* Background Pattern */}
@@ -89,19 +118,41 @@ export function Hero() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="relative max-w-md mx-auto lg:max-w-none"
             >
-              <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-elevated">
-                <img
-                  src="/brick.png"
-                  alt="Sustainable bricks made from recycled plastic"
-                  className="w-full h-auto object-cover aspect-[3/2] sm:aspect-[4/3]"
-                  onError={(e) => {
-                    // Fallback to hero-bricks.jpg if brick.png doesn't load
-                    const target = e.target as HTMLImageElement;
-                    target.src = heroBricks;
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
-              </div>
+              {!showHouses ? (
+                <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-elevated">
+                  <img
+                    src="/brick.png"
+                    alt="Sustainable bricks made from recycled plastic"
+                    className="w-full h-auto object-cover aspect-[3/2] sm:aspect-[4/3]"
+                    onError={(e) => {
+                      // Fallback to hero-bricks.jpg if brick.png doesn't load
+                      const target = e.target as HTMLImageElement;
+                      target.src = heroBricks;
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+                </div>
+              ) : (
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentHouseIndex}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.8 }}
+                    className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-elevated"
+                  >
+                    <div className="relative aspect-[3/2] sm:aspect-[4/3] overflow-hidden">
+                      <img
+                        src={houseImages[currentHouseIndex]}
+                        alt={`House ${currentHouseIndex + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              )}
 
               {/* Floating Card */}
               <motion.div

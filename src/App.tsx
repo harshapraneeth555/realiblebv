@@ -14,6 +14,7 @@ import Import from "./pages/Import";
 import Export from "./pages/Export";
 import Food from "./pages/Food";
 import Projects from "./pages/Projects";
+import FAQ from "./pages/FAQ";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Certifications from "./pages/Certifications";
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/services/export" element={<Export />} />
           <Route path="/services/food" element={<Food />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/certifications" element={<Certifications />} />

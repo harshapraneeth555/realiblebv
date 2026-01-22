@@ -17,7 +17,7 @@ const footerLinks = {
     { name: "Documentation", href: "#" },
     //{ name: "Case Studies", href: "#" },
     //{ name: "Blog", href: "#" },
-    { name: "FAQs", href: "/services" },
+    { name: "FAQs", href: "/faq" },
     { name: "Donate", href: "/donate" },
   ],
   legal: [
