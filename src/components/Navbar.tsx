@@ -22,7 +22,7 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Process", href: "/process" },
   { name: "Impact", href: "/impact" },
-  { name: "Projects", href: "/projects" },
+  { name: "Operations", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ];
 
